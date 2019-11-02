@@ -5,14 +5,14 @@ public class SimpleCalculator extends JFrame {
 
     public static void main(String[] args) {
 
-        //Frame cover = new Frame ();
-        //cover.coverNew();
+        Frame cover = new Frame();
+        cover.coverNew();
 
 //        Calculation calc = new Calculation();
 //        calc.calculation();
 
-        Reader reader1 = new Reader();
-        reader1.scan();
+//        Reader reader1 = new Reader();
+//        reader1.scan();
 
 
 
