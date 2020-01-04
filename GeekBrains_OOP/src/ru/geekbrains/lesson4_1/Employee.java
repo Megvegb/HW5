@@ -1,3 +1,5 @@
+package ru.geekbrains.lesson4_1;
+
 public class Employee {
 
    public String fullName;
@@ -29,11 +31,11 @@ public class Employee {
 
     public static void main(String[] args) {
         Employee[] ArrayEmp = new Employee[5];
-        ArrayEmp[0] = new Employee("Попов В.П", 25, "менеджер", "popov@yandex.ru", "+79256555555", 700);
+        ArrayEmp[0] = new Employee("Егоров В.А", 35, "менеджер", "popov@yandex.ru", "+79256555555", 700);
         ArrayEmp[1] = new Employee("Медведев В.А.", 45, "менеджер", "popov@yandex.ru", "+79256555555", 700);
-        ArrayEmp[2] = new Employee("Попов В.П", 25, "менелжер", "popov@yandex.ru", "+79256555555", 700);
+        ArrayEmp[2] = new Employee("Сергеев Д.А.", 15, "менелжер", "popov@yandex.ru", "+79256555555", 700);
         ArrayEmp[3] = new Employee("Попов В.П", 50, "менелжер", "popov@yandex.ru", "+79256555555", 700);
-        ArrayEmp[4] = new Employee("Попов В.П", 25, "менелжер", "popov@yandex.ru", "+79256555555", 700);
+        ArrayEmp[4] = new Employee("Савельев В.П", 25, "менелжер", "popov@yandex.ru", "+79256555555", 700);
 
         for (int i = 0; i < ArrayEmp.length; i++) {
             System.out.println("\n\t@@@@ \nСотрудник №" + (i + 1));
