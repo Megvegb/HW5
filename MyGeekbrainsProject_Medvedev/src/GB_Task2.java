@@ -106,24 +106,18 @@ public class GB_Task2 {
     //  Задача № 4
 
     public static void task_4 () {
-            final int MAX = 7;
-            char symbol;
+            final int MAX = 5;
             int[][] array = new int[MAX][MAX];
 
             for (int i = 0; i < array.length; i++) {
                 for (int j = 0; j < array.length; j++) {
-                    if (i == j || (array.length - 1) - i == j) { symbol = '1';
+                    if (i == j || (array.length - 1) - i == j) {
+                        array[i][j] = 1;
                     }
-                    else symbol = 'x';
-                    System.out.print(symbol + " ");
+                    else array[i][j] = 0;;
+                    System.out.print(array[i][j] + " ");
                 }
                 System.out.println("");
-            }
-
-            for (int i = 0; i < array.length; i++) {
-                for (int j = 0; j == i; j++) {
-                    array[i][j] = 1;
-                }
             }
     }
 
