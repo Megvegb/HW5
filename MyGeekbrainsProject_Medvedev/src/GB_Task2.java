@@ -28,9 +28,9 @@ public class GB_Task2 {
         * пройти по нему циклом, и числа меньшие 6 умножить на 2;
          */
 
-//        System.out.println("\n");
-//        System.out.println("Задача № 3");
-//        task_3(1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1);
+        System.out.println("\n");
+        System.out.println("Задача № 3");
+        task_3(1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1);
 
         /*
 Задача № 4
@@ -40,8 +40,9 @@ public class GB_Task2 {
 
         System.out.println("\n");
         System.out.println("Задача № 4");
-        task_4();
+        task_4(5);
 
+//        boxSize - т.е. параметр в скобках равен кол-ву ячеек в квадрате.
 
         /*
 Задача № 5
@@ -49,10 +50,36 @@ public class GB_Task2 {
         * элементы (без помощи интернета);
      */
 
-//        System.out.println("\n");
-//        System.out.println("Задача № 5");
-//        task_5(1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 20);
+        System.out.println("\n");
+        System.out.println("Задача № 5");
+        task_5(1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 20);
+
+
+    /*
+    Задача № 6
+     * Написать метод, в который передается не пустой одномерный целочисленный массив,
+     * метод должен вернуть true если в массиве есть место, в котором сумма левой и правой части
+     * массива равны. Примеры: checkBalance([1, 1, 1, || 2, 1]) → true, checkBalance
+     * ([2, 1, 1, 2, 1]) → false, checkBalance ([10, || 10]) → true,
+     */
+
+        System.out.println("\n");
+        System.out.println("Задача № 6");
+        task_6(1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 20);
+
+         /*
+    Задача № 7
+     * Написать метод, которому на вход подается одномерный массив и число n (может быть
+     * положительным, или отрицательным), при этом метод должен сместить все элементы
+     * массива на n позиций. Для усложнения задачи нельзя пользоваться вспомогательными
+     * массивами.
+     */
+
+
+
+
     }
+
 
 
 //  Задача № 1
@@ -105,9 +132,8 @@ public class GB_Task2 {
 
     //  Задача № 4
 
-    public static void task_4 () {
-            final int MAX = 5;
-            int[][] array = new int[MAX][MAX];
+    public static void task_4 (int boxSize) {
+            int[][] array = new int[boxSize][boxSize];
 
             for (int i = 0; i < array.length; i++) {
                 for (int j = 0; j < array.length; j++) {
@@ -119,6 +145,7 @@ public class GB_Task2 {
                 }
                 System.out.println("");
             }
+        System.out.println("Размер квадрата = " + boxSize + "x" + boxSize);
     }
 
     //  Задача № 5
@@ -135,5 +162,20 @@ public class GB_Task2 {
         }
         System.out.println("\nМаксимальное значение массива = " + maxValue);
         System.out.println("Минимальное значение массива = " + minValue);
+    }
+
+    //  Задача № 6
+    public static int task_6(int ... args) {
+        int [] array = args;
+        int rightSize = 0;
+        int leftSize = 0;
+
+
+        while (true)
+        for (int i = 0; i < array.length / 2; i++) {
+            leftSize = array[i] + rightSize;
+            rightSize = array[array.length - 1 - i] + leftSize;
+            if (rightSize == leftSize) break;
+        }
     }
 }
