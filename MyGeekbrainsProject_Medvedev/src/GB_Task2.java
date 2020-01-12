@@ -1,5 +1,13 @@
 import org.w3c.dom.ls.LSOutput;
 
+ /*
+    Добрый день! Оцените пожалуйста написанный мной код. Для вашего удобства реализован механизм вывода данных в консоль.
+    Запустите файл через компилятор и посмотрите результат, изменять входные пареметры можно в методе main
+    путем изменения входных параментов в методах.
+    Например: task3(2 , 3.0 , 8.0 , 4) можно заменить на task3(4 , 5, 8 , 10) и тд.
+    Надеюсь все понятно написал.
+*/
+
 public class GB_Task2 {
     public static void main(String[] args) {
 
@@ -18,9 +26,9 @@ public class GB_Task2 {
         * Задать пустой целочисленный массив размером 8.
         * С помощью цикла заполнить его значениями 0 3 6 9 12 15 18 21;
         */
-//        System.out.println("\n");
-//        System.out.println("Задача № 2");
-//        task_2();
+        System.out.println("\n");
+        System.out.println("Задача № 2");
+        task_2();
 
         /*
 Задача № 3
@@ -75,15 +83,20 @@ public class GB_Task2 {
      * массивами.
      */
 
-
-
+        System.out.println("\n");
+        System.out.println("Задача № 7");
+        System.out.println("Исходный массив смещен на: ");
+        task_7(5, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 20);
+        System.out.println(" ");
+        task_7(-3, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 20);
+        System.out.println(" ");
+        task_7(16, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 20);
 
     }
 
 
-
-//  Задача № 1
-    public static void task_1 (int ... args) {
+    //  Задача № 1
+    public static void task_1(int... args) {
         int[] array = args;
         System.out.println("массив до изменения:");
         for (int i = 0; i < array.length; i++) {
@@ -100,7 +113,7 @@ public class GB_Task2 {
 
     //  Задача № 2
 
-    public static void task_2 () {
+    public static void task_2() {
         int[] array = new int[8];
         for (int i = 0; i < array.length; i++) {
             array[i] = i * 3;
@@ -113,59 +126,59 @@ public class GB_Task2 {
 
     //  Задача № 3
 
-        public static void task_3(int ... args) {
-            int[] array = args;
-            System.out.println("Переданный массив:");
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + " ");
+    public static void task_3(int... args) {
+        int[] array = args;
+        System.out.println("Переданный массив:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
 
-                if (array[i] < 6) {
-                    array[i] = array[i] * 6;
-                }
-            }
-
-            System.out.println("\nИзмененный массив:");
-            for (int tmp : array){
-                System.out.print(tmp + " ");
+            if (array[i] < 6) {
+                array[i] = array[i] * 6;
             }
         }
 
+        System.out.println("\nИзмененный массив:");
+        for (int tmp : array) {
+            System.out.print(tmp + " ");
+        }
+    }
+
     //  Задача № 4
 
-    public static void task_4 (int boxSize) {
-            int[][] array = new int[boxSize][boxSize];
+    public static void task_4(int boxSize) {
+        int[][] array = new int[boxSize][boxSize];
 
-            for (int i = 0; i < array.length; i++) {
-                for (int j = 0; j < array.length; j++) {
-                    if (i == j || (array.length - 1) - i == j) {
-                        array[i][j] = 1;
-                    }
-                    else array[i][j] = 0;;
-                    System.out.print(array[i][j] + " ");
-                }
-                System.out.println("");
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (i == j || (array.length - 1) - i == j) {
+                    array[i][j] = 1;
+                } else array[i][j] = 0;
+                ;
+                System.out.print(array[i][j] + " ");
             }
+            System.out.println("");
+        }
         System.out.println("Размер квадрата = " + boxSize + "x" + boxSize);
     }
 
     //  Задача № 5
 
-    public static void task_5 (int ... args) {
-        int [] array = args;
+    public static void task_5(int... args) {
+        int[] array = args;
         int maxValue = array[1];
         int minValue = array[1];
         System.out.print("Исходный массив:\n");
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
-           if (array[i] > maxValue) maxValue = array[i];
-           if (array[i] < minValue) minValue = array[i];
+            if (array[i] > maxValue) maxValue = array[i];
+            if (array[i] < minValue) minValue = array[i];
         }
         System.out.println("\nМаксимальное значение массива = " + maxValue);
         System.out.println("Минимальное значение массива = " + minValue);
     }
 
     //  Задача № 6
-    private static boolean task_6(int...args) {
+    private static boolean task_6(int... args) {
         int[] array = args;
         int leftSum, rightSum;
 
@@ -186,4 +199,44 @@ public class GB_Task2 {
         }
         return false;
     }
+
+
+    //  Задача № 7
+
+    public static void task_7(int shift, int... incomingArray) {
+        int changeShift;
+        int[] array = incomingArray;
+
+//        оптимизируем кол-во смещений, на тот случай если число n больше длинны массива
+
+        if (shift != 0 && Math.abs(shift) > array.length) changeShift = shift % array.length;
+        else changeShift = shift;
+
+        if (changeShift > 0) {
+            for (int i = 0; i < changeShift; i++) {
+                int buffer = array[0];
+
+                for (int j = 1; j < array.length; j++) {
+                    array[j - 1] = array[j];
+                }
+                array[array.length - 1] = buffer;
+            }
+        }
+        if (changeShift < 0) {
+            for (int i = 0; i > changeShift; i--) {
+                int buffer = array[array.length - 1];
+
+                for (int j = 1; j < array.length; j++) {
+                    array[array.length - j] = array[array.length - j - 1];
+                }
+                array[0] = buffer;
+            }
+        }
+
+        System.out.println(shift + " позиции");
+        for (int tmp : array) {
+            System.out.print(tmp + " ");
+        }
+    }
 }
+
