@@ -65,7 +65,7 @@ public class GB_Task2 {
 
         System.out.println("\n");
         System.out.println("Задача № 6");
-        task_6(1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 20);
+        System.out.println(task_6(1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 20));
 
          /*
     Задача № 7
@@ -165,17 +165,25 @@ public class GB_Task2 {
     }
 
     //  Задача № 6
-    public static int task_6(int ... args) {
-        int [] array = args;
-        int rightSize = 0;
-        int leftSize = 0;
+    private static boolean task_6(int...args) {
+        int[] array = args;
+        int leftSum, rightSum;
 
 
-        while (true)
-        for (int i = 0; i < array.length / 2; i++) {
-            leftSize = array[i] + rightSize;
-            rightSize = array[array.length - 1 - i] + leftSize;
-            if (rightSize == leftSize) break;
+        for (int i = 0; i < array.length + 1; i++) {
+            leftSum = 0;
+            rightSum = 0;
+
+            for (int j = 0; j < i; j++) {
+                leftSum += args[j];
+            }
+
+            for (int j = i; j < array.length; j++) {
+                rightSum += array[j];
+            }
+
+            if (leftSum == rightSum) return true;
         }
+        return false;
     }
 }
